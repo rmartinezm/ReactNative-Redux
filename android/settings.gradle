@@ -1,0 +1,3 @@
+rootProject.name = 'GasPremium'
+
+include ':app'
