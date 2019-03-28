@@ -14,31 +14,36 @@ const dimensions = {
     }
 }
 
-const primary = '#FFFFFF';
-const secondary = '#000000';
-const tertiary = '#111f9f';
-const colors  = {
+const colorPrimary = '#FFFFFF';
+const colorPrimaryDark = '#D8D8D8';
+const colorAccent = '#000000';
+const colors = {
     colorPrimary: {
-        backgroundColor: primary
+        color: colorPrimary
     },
-    colorSecondary: {
-        backgroundColor: secondary
+    colorPrimaryDark: {
+        color: colorPrimaryDark
     },
-    colorTertiary: {
-        backgroundColor: tertiary
+    colorAccent: {
+        color: colorAccent
     },
-    bgPrimary: {
-        backgroundColor: primary
+    bgColorPrimary: {
+        backgroundColor: colorPrimary
     },
-    bgSecondary: {
-        backgroundColor: secondary
+    bgColorPrimaryDark: {
+        backgroundColor: colorPrimaryDark
     },
-    bgTertiary: {
-        backgroundColor: tertiary
+    bgColorAccent: {
+        backgroundColor: colorAccent
     },
 }
 
+const shape = {
+
+} 
+
 export default StyleSheet.create({
     ...dimensions,
-    ...colors
+    ...colors,
+    ...shape
 });

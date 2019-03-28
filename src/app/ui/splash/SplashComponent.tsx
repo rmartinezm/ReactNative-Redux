@@ -21,7 +21,7 @@ class SplashComponent extends Component<any> {
     this.naviageTo();
     console.log(this.props);
     return (
-      <View style={Style.fullScreen}>
+      <View style={{ flex: 1 }}>
         <Image source={require('../../../assets/img/gas_logo.png')} style={Style.fullScreen}/>
       </View>
     );
