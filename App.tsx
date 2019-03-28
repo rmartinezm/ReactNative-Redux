@@ -1,18 +1,15 @@
-import React, {Component} from 'react';
-import { View } from 'react-native';
-// Redux
-import { Provider } from 'react-redux';
-import configureStore from './src/app/store/ConfigureStore';
-const store = configureStore();
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import SplashComponent from './src/app/ui/splash/SplashComponent';
+import TutorialComponent from './src/app/ui/tutorial/TutorialComponent';
+import Route from './src/app/model/enum/Route';
 
-export default class App extends Component<any> {
-  
-  render() {
-    return (
-      <Provider store={store}>
-        <View></View>
-      </Provider>
-    );
-  }
+const AppNavigator = createStackNavigator({
+  Splash: { screen: SplashComponent },
+  Tutorial: { screen: TutorialComponent }
+}, {
+  initialRouteName: Route.SPLASH,
+  headerMode: 'screen' 
+});
+const AppContainer = createAppContainer(AppNavigator);
 
-}
+export default AppContainer;

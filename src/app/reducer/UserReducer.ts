@@ -3,10 +3,10 @@ import { SET_USER, LOADING, ERROR } from '../action/UserAction';
 const defaultState = {
     loading: true,
     error: null,
-    user: null
+    user: null,
 }
 
-export default function userReducer(state = defaultState, action: any){
+export default function userReducer(state = defaultState, action: { type: string, payload: any }){
     let clone = Object.assign({}, state);
     switch(action.type){
         case LOADING:
