@@ -3,6 +3,7 @@ import { Text, View, BackHandler } from 'react-native';
 import { IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
 import Style from '../../BaseStyleSheet';
 import TutorialStyle from './TutorialStyleSheet';
+import Route from '../../model/enum/Route';
 
 
 export default class TutorialComponent extends Component<any> {
@@ -11,20 +12,20 @@ export default class TutorialComponent extends Component<any> {
     header: null
   }
 
-  private _didFocusSubscription: any;
-
   constructor(props: any) {
     super(props);
-    this._didFocusSubscription = props.navigation.addListener('didFocus', (_: any) =>
-      BackHandler.addEventListener('hardwareBackPress', () => true)
-    );
   }
 
-  /**
-   * 
-   */
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', () => true);
+  }
+
   componentWillUnmount() {
-    this._didFocusSubscription && this._didFocusSubscription.remove();
+    BackHandler.removeEventListener('hardwareBackPress', () => {});
+  }
+
+  private naviageTo(route: Route){
+      this.props.navigation.navigate(route);
   }
 
   /**
@@ -65,7 +66,7 @@ export default class TutorialComponent extends Component<any> {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: .1, flexDirection: 'row-reverse', alignItems: 'center' }}>
-          <Text style={TutorialStyle.TextAsButton}>Saltar</Text>
+          <Text style={TutorialStyle.TextAsButton} onPress={() => this.naviageTo(Route.MAIN)}>Saltar</Text>
         </View>
         <IndicatorViewPager style={{ flex: .9 }} indicator={this._renderDotIndicator(pages.length)}>
           {pages.map(it => it)}

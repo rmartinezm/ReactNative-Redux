@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import Style from '../../BaseStyleSheet';
 
-const dotSize = 14;
+const dotSize = 12;
 
 export default StyleSheet.create({
     TextAsButton: {
